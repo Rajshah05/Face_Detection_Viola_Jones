@@ -14,3 +14,5 @@ Run (training): Train a cascaded classifier by following the given steps:
 
 Run (for detection): Can use already trained cascade for detection purpose
 1. Run "FaceDetection.py" followed by a space and <..relative directory to the images to be detected>.
+
+# Please refer "Report.pdf" for implementation and project details
