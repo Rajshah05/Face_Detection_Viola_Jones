@@ -1,32 +1,16 @@
 # Face_Detection_Viola_Jones
 
-Viola-Jones Implementation-
+A face detection tool based on viola-jones machine learning algorithm
 
-files:
-1. FaceDetection.py 
-2. Report.pdf
-3. results.json
+# How to run
 
-
-Folder: Model_Files
-
-strong_classifiers.pkl - linear combination of 1103 weak classifiers
-cascade.pkl - cascade model trained from the above strong classifier
-
-Training files- 
-1. haar_features.py - For feature extraction
-2. threshold_optimization.py - For optimizing thresholds for each feature
-3. ada_boost.py - Adaboost implementation
-4. cascade_training.py - Cascading the extracted features
-
-
-
-Run (training): These files can be used to train the cascade when run in this sequence
-1. haar_features.py (first extract "train_posf" and "train_negf")
-2. threshold_optimization.py
-3. ada_boost.py
-4. cascade_training.py 
+Run (training): Train a cascaded classifier by following the given steps:
+1. extract "train_posf" and "train_negf" files
+1. Run "haar_features.py" to extract all possible haar feature values for each images in positive and negative face images
+2. Run "threshold_optimization.py" to get optimized thresholds for each weak classifier(haar feature) 
+3. Run "ada_boost.py" to get the most relevant weak classifiers(haar features), that give minimum error on classifying positive and negative face images, for faces in sequence
+4. Run "cascade_training.py" to build a cascade out of the relevant weak classifiers extracted from adaboost. 
 
 
 Run (for detection): Can use already trained cascade for detection purpose
-1. FaceDetection.py (run for detection)
+1. Run "FaceDetection.py" followed by a space and <..relative directory to the images to be detected>.
